@@ -43,7 +43,7 @@ graph.fromJSON(obj);
 graph.nodes;
 
 //map of node’s connected nodes, undirected
-graph.adjacent;
+graph.edges;
 
 //map of node's input nodes
 graph.inputs;
