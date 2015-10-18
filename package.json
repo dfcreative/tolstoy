@@ -1,0 +1,32 @@
+{
+  "name": "tolstoy",
+  "version": "1.0.0",
+  "description": "Ascetic graph structure",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dfcreative/tolstoy"
+  },
+  "keywords": [
+    "graph",
+    "structure",
+    "math"
+  ],
+  "author": "Deema Yvanow <dfcreative@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dfcreative/tolstoy/issues"
+  },
+  "homepage": "https://github.com/dfcreative/tolstoy",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "mocha": "^2.3.3"
+  },
+  "dependencies": {
+    "inherits": "^2.0.1",
+    "xtend": "^4.0.0"
+  }
+}
