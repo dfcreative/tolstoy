@@ -86,16 +86,15 @@ class StreamGraph extends Graph {
 
 ## Use-cases
 
-* Used as a base for audio-graph.
-* Use as a base for any kind of specific graph, to delegate stuctural work to graph.
-* API is as simple as Map, Set.
-* Modern, i. e. uses proper structures for storing data.
-* Can be used to implement state machine.
-* Can be rendered in various ways via plugins.
-* Provides simple serialization, deserialization methods.
+* A base for [audio-graph](https://github.com/audio-lab/graph).
+* A base for any kind of specific graph, to delegate stuctural work.
+* A state machine, like [st8](https://github.com/dfcreative/st8).
+* A model to scaffold data for graph renderer.
+* Simple serialization, deserialization.
 
 
-## What Tolstoy is not
+## Principles
 
 * It does not provide a framework of graph calculations, or rendering facilities — the whole purpose of the project is to provide maximally minimal familiar structure to work with graphs, providing minimally possible set of methods.
 * It does not try to purport the theoretical purity in sense of directed/undirected/multi/simple graph etc. It provides a basic tiny class to extend on demand to implement any kind of graph-like structure.
+* Tolstoy uses ES6 structures beneath, so you may need to polyfill them with [babel](https://babeljs.io/docs/setup/) etc.

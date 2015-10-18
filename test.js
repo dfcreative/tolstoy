@@ -1,5 +1,6 @@
 var assert = require('assert');
 var Graph = require('./');
+var EventedGraph = require('./evented');
 
 
 describe('', function () {
