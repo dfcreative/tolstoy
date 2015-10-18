@@ -1,9 +1,8 @@
 var assert = require('assert');
-var Graph = require('./');
-var EventedGraph = require('./evented');
+var Graph = require('./evented');
 
 
-describe('', function () {
+describe('Leo Tolstoy', function () {
 	it('Create from connections', function () {
 		var graph = new Graph([[1, 2], [2, 1], [2, 3]]);
 
