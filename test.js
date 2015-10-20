@@ -18,6 +18,14 @@ describe('Leo Tolstoy', function () {
 		assert.equal(graph.edges.size, 3);
 	});
 
+	it('Create from other graph', function () {
+		var graph0 = new Graph([1, 2, 3, [1,2]]);
+		var graph = new Graph(graph0);
+		assert.equal(graph.nodes.size, 3);
+		assert.equal(graph.edges.size, 3);
+		assert.equal(graph.isConnected(1,2), true);
+	});
+
 	it('Should remove all on clear', function () {
 		var graph = new Graph([[1,1], [1,2], [2,3], [3,1]]);
 

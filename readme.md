@@ -7,11 +7,14 @@ Generic graph structure with ascetic API.
 ```js
 var Graph = require('tolstoy');
 
-//create from a set of edges
-var graph = new Graph([[a, b], [b, a], [a, c], ...]);
-
 //create from a set of nodes
 var graph = new Graph([a, b, c]);
+
+//create from a set of connected nodes
+graph = new Graph([[a, b], [b, a], [a, c], ...]);
+
+//create from the other graph (clone)
+graph = new Graph(graph);
 
 //add node
 graph.add(a).add(b);
@@ -34,6 +37,9 @@ graph.connect(a, b).connect(b, c);
 //disconnect node b from a, or from all output nodes, if undefined
 //if you need to disconnect all inputs, use `delete(a)` and then `add(a)`.
 graph.disconnect(b, a?);
+
+//check whether two nodes are connected
+graph.isConnected(a, b);
 
 //default serialization
 graph.toJSON();

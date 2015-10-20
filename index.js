@@ -23,8 +23,20 @@ function Graph (list) {
 	this.inputs = new Map();
 	this.outputs = new Map();
 
+	//passed other graph
+	if (list instanceof Graph) {
+		var self = this;
+		list.nodes.forEach(function (node) {
+			self.add(node);
+		});
+		list.edges.forEach(function (toSet, from) {
+			toSet.forEach(function (to) {
+				self.connect(from, to);
+			});
+		});
+	}
 	//array-like arg
-	if (list && list.length) {
+	else if (list && list.length) {
 		for (var i = 0, l = list.length; i < l; i++) {
 			var item = list[i];
 
@@ -132,6 +144,7 @@ Graph.prototype.forEach = function (fn, ctx) {
  */
 Graph.prototype.connect = function (a, b) {
 	if (!this.has(a) || !this.has(b)) return this;
+	if (this.isConnected(a, b)) return this;
 
 	//save the connections
 	this.edges.get(a).add(b);
@@ -149,8 +162,6 @@ Graph.prototype.connect = function (a, b) {
  * @return {Boolean} Result of operation
  */
 Graph.prototype.disconnect = function (a, b) {
-	if (!this.edges.has(a) || !this.edges.has(b)) return false;
-
 	//if no b - disconnect node outputs
 	if (arguments.length < 2) {
 		this.outputs.get(a).forEach(function (b) {
@@ -159,12 +170,24 @@ Graph.prototype.disconnect = function (a, b) {
 		return true;
 	}
 
+	if (!this.edges.has(a) || !this.edges.has(b)) return false;
+	if (!this.isConnected(a, b)) return false;
+
 	//delete connection
 	this.edges.get(a).delete(b);
 	this.outputs.get(a).delete(b);
 	this.inputs.get(b).delete(a);
 
 	return true;
+};
+
+
+/**
+ * Simple connection checker
+ */
+Graph.prototype.isConnected = function (a, b) {
+	if (!this.has(a) || !this.has(b)) return false;
+	return this.outputs.get(a).has(b);
 };
 
 
