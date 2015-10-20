@@ -1,6 +1,6 @@
 {
   "name": "tolstoy",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Generic graph structure with ascetic API",
   "main": "index.js",
   "scripts": {
