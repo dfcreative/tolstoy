@@ -1,4 +1,4 @@
-Graph structure with ascetic API.
+Generic graph structure with ascetic API.
 
 ## Usage
 
@@ -52,50 +52,11 @@ graph.inputs;
 graph.outputs;
 ```
 
-There is also an evented version of graph, inheriting `EventEmitter`, which may be more suitable for some practical cases. It can be used, for example, to extend graph as so:
-
-```js
-var Graph = require('tolstoy/evented');
-
-/**
- * Graph of connected streams
- */
-class StreamGraph extends Graph {
-	constructor (arg) {
-		super(arg);
-
-		//create writable stream as a main output
-		this.output = new Writable();
-	}
-
-	/**
-	 * Redefine connect method to really connect subsequent nodes
-	 *
-	 * @param {Stream} streamA Source stream
-	 * @param {Stream} streamB Target stream
-	 */
-	connect (streamA, streamB) {
-		super.connect(streamA, streamB);
-
-		streamA.pipe(streamB);
-
-		this.emit('connected', streamA, streamB);
-	}
-}
-```
-
-## Use-cases
-
-* A base for [audio-graph](https://github.com/audio-lab/graph).
-* A base for any kind of specific graph, to delegate stuctural work.
-* A state machine, like [st8](https://github.com/dfcreative/st8).
-* A model to scaffold data for graph renderer.
-* Simple serialization, deserialization.
-
 
 ## Principles
 
-* It does not provide a framework of graph calculations, or rendering facilities — the whole purpose of the project is to provide maximally minimal familiar structure to work with graphs, providing minimally possible set of methods.
-* It does not try to purport the theoretical purity in sense of directed/undirected/multi/simple graph etc. It provides a basic tiny class to extend on demand to implement any kind of graph-like structure.
+* Tolstoy does not provide a framework of graph calculations, or rendering facilities — the whole purpose of the project is to provide maximally minimal familiar structure to work with graphs, providing minimally possible set of methods.
+* Tolstoy does not try to purport the theoretical purity in sense of directed/undirected/multi/simple graph etc. It provides a basic tiny class to extend on demand to implement any kind of graph-like structure.
 * Tolstoy uses ES6 structures beneath, so you may need to polyfill them with [babel](https://babeljs.io/docs/setup/) etc.
 * API is as close as possible to native structures like [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set). Structures should be felt naturally.
+* Tolstoy is a temporary solution, akin to [xtend](https://npmjs.org/package/xtend), till there is no native implementation of _Graph_ in node/browsers. As only there is one, tolstoy is going to be replaced with polyfill.

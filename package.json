@@ -1,7 +1,7 @@
 {
   "name": "tolstoy",
   "version": "1.0.1",
-  "description": "Ascetic graph structure",
+  "description": "Generic graph structure with ascetic API",
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel/register"

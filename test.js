@@ -1,5 +1,5 @@
 var assert = require('assert');
-var Graph = require('./evented');
+var Graph = require('./');
 
 
 describe('Leo Tolstoy', function () {
