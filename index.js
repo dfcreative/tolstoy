@@ -162,6 +162,8 @@ Graph.prototype.connect = function (a, b) {
  * @return {Boolean} Result of operation
  */
 Graph.prototype.disconnect = function (a, b) {
+	if (!this.edges.has(a)) return false;
+
 	//if no b - disconnect node outputs
 	if (arguments.length < 2) {
 		this.outputs.get(a).forEach(function (b) {
@@ -170,7 +172,7 @@ Graph.prototype.disconnect = function (a, b) {
 		return true;
 	}
 
-	if (!this.edges.has(a) || !this.edges.has(b)) return false;
+	if (!this.edges.has(b)) return false;
 	if (!this.isConnected(a, b)) return false;
 
 	//delete connection

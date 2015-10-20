@@ -62,4 +62,12 @@ describe('Leo Tolstoy', function () {
 
 		assert.deepEqual(graph.fromJSON(structure).toJSON(), structure)
 	});
+
+	it('Disconnect', function () {
+		var graph = new Graph([[1,2]]);
+		assert.equal(graph.edges.get(1).size, 1);
+		graph.disconnect(1);
+		graph.disconnect(5);
+		assert.equal(graph.edges.get(1).size, 0);
+	});
 });
