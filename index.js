@@ -10,10 +10,17 @@
  *
  * @param {Iterable} list Initial structure, whether nodes or connections
  */
-function Graph (list) {
-	//impossible to do that due to multiple inheritance issue
-	// if (!(this instanceof Graph)) return new Graph(list);
+function Graph (arg) {
+	if (!(this instanceof Graph)) return new Graph(arg);
 
+	this.constructor(arg);
+}
+
+/**
+ * Separated constructor
+ * To let it able to be called separately from inheritants
+ */
+Graph.prototype.constructor = function (list) {
 	//set of nodes
 	this.nodes = new Set();
 
