@@ -11,7 +11,8 @@
  * @param {Iterable} list Initial structure, whether nodes or connections
  */
 function Graph (list) {
-	if (!(this instanceof Graph)) return new Graph(list);
+	//impossible to do that due to multiple inheritance issue
+	// if (!(this instanceof Graph)) return new Graph(list);
 
 	//set of nodes
 	this.nodes = new Set();
