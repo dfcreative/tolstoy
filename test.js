@@ -70,4 +70,8 @@ describe('Leo Tolstoy', function () {
 		graph.disconnect(5);
 		assert.equal(graph.edges.get(1).size, 0);
 	});
+
+	it('Don’t add undefined', function () {
+		assert.equal((new Graph()).nodes.size, 0);
+	});
 });

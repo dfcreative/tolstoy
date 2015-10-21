@@ -36,26 +36,28 @@ function Graph (list) {
 			});
 		});
 	}
-	//array-like arg
-	else if (list && list.length) {
-		for (var i = 0, l = list.length; i < l; i++) {
-			var item = list[i];
+	else if (list) {
+		//array-like arg
+		if  (list.length) {
+			for (var i = 0, l = list.length; i < l; i++) {
+				var item = list[i];
 
-			//[1,2], [2,3], [3,1]
-			if (item instanceof Array) {
-				this.add(item[0]);
-				this.add(item[1]);
-				this.connect(item[0], item[1]);
-			}
-			//1, 2, 3
-			else {
-				this.add(item);
-			}
-		};
-	}
-	//single arg
-	else {
-		this.add(list);
+				//[1,2], [2,3], [3,1]
+				if (item instanceof Array) {
+					this.add(item[0]);
+					this.add(item[1]);
+					this.connect(item[0], item[1]);
+				}
+				//1, 2, 3
+				else {
+					this.add(item);
+				}
+			};
+		}
+		//single arg
+		else {
+			this.add(list);
+		}
 	}
 }
 
