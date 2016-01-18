@@ -66,3 +66,7 @@ graph.outputs;
 * Tolstoy uses ES6 structures beneath, so you may need to polyfill them with [babel](https://babeljs.io/docs/setup/) etc.
 * API is as close as possible to native structures like [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set). Structures should be felt naturally.
 * Tolstoy is a temporary solution, akin to [xtend](https://npmjs.org/package/xtend), till there is no native implementation of _Graph_ in node/browsers. As only there is one, tolstoy is going to be replaced with polyfill.
+
+## Related
+
+* [ngraph](https://npmjs.org/package/ngraph.graph) — more popular and well-supported graph. Please have a look.
